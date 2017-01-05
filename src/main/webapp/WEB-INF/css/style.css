@@ -1,0 +1,23 @@
+body{
+    padding-top: 50px;
+
+}
+.starter-template{
+    padding: 10px 10px;
+}
+form {
+    margin: 0 auto;
+}
+
+h1 {
+    padding-left: 300px;
+}
+
+.alert {
+    width: 400px;
+    max-width: 400px;
+}
+.win{
+    color: green;
+}
+
