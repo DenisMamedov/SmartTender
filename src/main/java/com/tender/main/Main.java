@@ -1,25 +1,26 @@
 package com.tender.main;
 
-import com.tender.connection.DataSource;
-import com.tender.dao.TenderDAO;
-import com.tender.dao.factory.MySqlDAOFactory;
-import com.tender.entity.Tender;
 
-import java.sql.Connection;
+import com.tender.entity.Tender;
+import com.tender.service.ServiceManager;
+import com.tender.service.TenderService;
+
+import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) {
 
-        Connection connection = DataSource.getConnection();
 
-        TenderDAO tenderDAO = new MySqlDAOFactory(connection).getTenderDAO();
 
-        for (Tender tender : tenderDAO.selectTender()){
+        TenderService tenderService = (TenderService) ServiceManager.getService(TenderService.class);
+        LinkedList<Tender> tenders = tenderService.showTenders();
+
+        for (Tender tender : tenders){
             System.out.println(tender);
         }
 
-        DataSource.returnConnection(connection);
+
 
 
 }

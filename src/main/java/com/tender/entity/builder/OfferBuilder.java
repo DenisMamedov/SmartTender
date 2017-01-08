@@ -1,7 +1,7 @@
 package com.tender.entity.builder;
 
-import com.tender.entity.Offer;
 import com.tender.entity.Supplier;
+import com.tender.entity.Offer;
 import com.tender.entity.Tender;
 
 import java.sql.Timestamp;

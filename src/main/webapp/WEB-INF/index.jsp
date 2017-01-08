@@ -54,7 +54,7 @@
 
 <div class="container">
     <div class="starter-template">
-        <c:redirect url="${pageContext.request.contextPath}/controller?command=index"/>
+        
         <div class="alert alert-info">
         </div>
 

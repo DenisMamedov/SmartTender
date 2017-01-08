@@ -3,11 +3,11 @@ package com.tender.dao.impl;
 import com.tender.dao.CategoryDAO;
 import com.tender.dao.CompanyDAO;
 import com.tender.dao.StatusDAO;
+import com.tender.parser.DateTimeParser;
 import com.tender.dao.TenderDAO;
 import com.tender.dao.factory.MySqlDAOFactory;
 import com.tender.entity.Tender;
 import com.tender.entity.builder.TenderBuilder;
-import com.tender.parser.DateTimeParser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

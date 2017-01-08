@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="tender@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="tender">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mynewdatabase"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="category"/>
+    <table id="9" parent="2" name="company">
+      <Comment>Organizer</Comment>
+    </table>
+    <table id="10" parent="2" name="offer"/>
+    <table id="11" parent="2" name="status"/>
+    <table id="12" parent="2" name="supplier"/>
+    <table id="13" parent="2" name="tender"/>
+    <table id="14" parent="2" name="tender_specification"/>
+    <column id="15" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="8" name="category_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="17" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="9" name="company_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="20" parent="9" name="address">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="21" parent="9" name="contact_name">
+      <Position>4</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="22" parent="9" name="contact_phone">
+      <Position>5</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <key id="23" parent="9" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="25" parent="10" name="supplier_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="10" name="tender_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="lot_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="price">
+      <Position>5</Position>
+      <DataType>double unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="term_of_delivery">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="30" parent="10" name="condition_of_payment">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="31" parent="10" name="additional_info">
+      <Position>8</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="32" parent="10" name="timeset">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="33" parent="10" name="condition_of_delivery">
+      <Position>10</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="34" parent="10" name="guarantee">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="35" parent="10" name="status">
+      <Position>12</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <index id="36" parent="10" name="idx_offers">
+      <ColNames>lot_id</ColNames>
+    </index>
+    <index id="37" parent="10" name="idx_offers_0">
+      <ColNames>supplier_id</ColNames>
+    </index>
+    <index id="38" parent="10" name="pk_offers_0">
+      <ColNames>tender_id</ColNames>
+    </index>
+    <key id="39" parent="10" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="10" name="fk_offers">
+      <ColNames>supplier_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>supplier</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="41" parent="10" name="fk_offers_0">
+      <ColNames>tender_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>tender_specification</RefTableName>
+      <RefColNames>tender_id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="42" parent="10" name="fk_offers_1">
+      <ColNames>lot_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>tender_specification</RefTableName>
+      <RefColNames>lot_id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="43" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="11" name="status">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="45" parent="11" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="12" name="supplier_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="48" parent="12" name="okpo">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="49" parent="12" name="address">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="50" parent="12" name="contact_name">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="51" parent="12" name="contact_phone">
+      <Position>6</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="52" parent="12" name="email">
+      <Position>7</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="53" parent="12" name="password">
+      <Position>8</Position>
+      <DataType>char(32)|0</DataType>
+    </column>
+    <column id="54" parent="12" name="role">
+      <Position>9</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;admin&apos;</DefaultExpression>
+    </column>
+    <column id="55" parent="12" name="is_active">
+      <Position>10</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="56" parent="12" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="13" name="tender_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="59" parent="13" name="company_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="60" parent="13" name="category_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="61" parent="13" name="end_date">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="62" parent="13" name="status_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="63" parent="13" name="idx_tender">
+      <ColNames>status_id</ColNames>
+    </index>
+    <index id="64" parent="13" name="pk_tender_0">
+      <ColNames>company_id</ColNames>
+    </index>
+    <index id="65" parent="13" name="pk_tender_1">
+      <ColNames>category_id</ColNames>
+    </index>
+    <key id="66" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="13" name="fk_tender">
+      <ColNames>company_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>company</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="68" parent="13" name="fk_tender_0">
+      <ColNames>category_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>category</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="69" parent="13" name="fk_tender_1">
+      <ColNames>status_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>status</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="70" parent="14" name="tender_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="14" name="lot_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="14" name="specification">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="73" parent="14" name="quantity">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="74" parent="14" name="information">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="75" parent="14" name="id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="76" parent="14" name="idx_tender_spec">
+      <ColNames>tender_id</ColNames>
+    </index>
+    <index id="77" parent="14" name="pk_tender_spec">
+      <ColNames>lot_id</ColNames>
+    </index>
+    <key id="78" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="79" parent="14" name="fk_tender_spec">
+      <ColNames>tender_id</ColNames>
+      <RefSchemaName>tender</RefSchemaName>
+      <RefTableName>tender</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>

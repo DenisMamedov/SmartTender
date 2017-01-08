@@ -4,10 +4,10 @@ import com.tender.dao.CategoryDAO;
 import com.tender.dao.CompanyDAO;
 import com.tender.dao.StatusDAO;
 import com.tender.dao.TenderDAO;
-import com.tender.dao.impl.MySqlCategoryDAO;
 import com.tender.dao.impl.MySqlCompanyDAO;
 import com.tender.dao.impl.MySqlStatusDAO;
 import com.tender.dao.impl.MySqlTenderDAO;
+import com.tender.dao.impl.MySqlCategoryDAO;
 
 import java.sql.Connection;
 
