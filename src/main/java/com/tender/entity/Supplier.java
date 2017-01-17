@@ -17,7 +17,7 @@ public class Supplier extends AbstractEntity {
     private String role;
 
     public Supplier(String supplierName, Integer okpo, String address, String contactName,
-                    String contactPhone, String email, String password, String role){
+                    String contactPhone, String email, String password, String role) {
         this.supplierName = supplierName;
         this.okpo = okpo;
         this.address = address;

@@ -28,26 +28,6 @@ public class MySqlTenderSpecificationDAO implements TenderSpecificationDAO {
     }
 
     @Override
-    public int insertTenderSpecification(TenderSpecification tenderSpec) {
-        return 0;
-    }
-
-    @Override
-    public boolean deleteTenderSpecification(int id) {
-        return false;
-    }
-
-    @Override
-    public TenderSpecification findTenderSpecification(int id) {
-        return null;
-    }
-
-    @Override
-    public boolean updateTenderSpecification(TenderSpecification tenderSpec) {
-        return false;
-    }
-
-    @Override
     public LinkedList<TenderSpecification> selectTenderSpecificationByTenderId(int id) {
         LinkedList<TenderSpecification> list = new LinkedList<>();
         try {

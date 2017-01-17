@@ -11,9 +11,9 @@ import java.io.IOException;
 /**
  * Created by Денис on 11.01.2017.
  */
-public class Controller extends HttpServlet{
+public class Controller extends HttpServlet {
 
-    private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ICommand command = ControllerHelper.getInstance().getCommand(request);
         String path = command.execute(request, response);
@@ -22,7 +22,7 @@ public class Controller extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       process(req, resp);
+        process(req, resp);
     }
 
     @Override

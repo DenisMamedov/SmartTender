@@ -28,7 +28,7 @@ public class MySqlOfferDAO implements OfferDAO {
     private static final String GET_OFFER_INFORMATION = "SELECT lot_id, price, term_of_delivery, condition_of_payment, additional_info, condition_of_delivery, guarantee FROM offer " +
             "WHERE tender_id= ? AND supplier_id= ?";
 
-    private static final String GET_MIN_PRICE = "SELECT MIN(price) as min, lot_id FROM offer WHERE tender_id= ? GROUP BY lot_id";
+    private static final String GET_MIN_PRICE = "SELECT MIN(price) AS min, lot_id FROM offer WHERE tender_id= ? GROUP BY lot_id";
 
     @Override
     public int insertOffer(Map<Integer, Offer> offerMap) {
@@ -38,7 +38,7 @@ public class MySqlOfferDAO implements OfferDAO {
             connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_OFFER, Statement.RETURN_GENERATED_KEYS);
             for (Map.Entry entry : offerMap.entrySet()) {
-                Offer offer = (Offer)entry.getValue();
+                Offer offer = (Offer) entry.getValue();
                 preparedStatement.setInt(1, offer.getSupplier().getId());
                 preparedStatement.setInt(2, offer.getTender().getId());
                 preparedStatement.setInt(3, offer.getLotId());
@@ -73,7 +73,7 @@ public class MySqlOfferDAO implements OfferDAO {
             preparedStatement.setInt(8, tender_id);
             preparedStatement.setInt(9, supplier_id);
             for (Map.Entry entry : offerMap.entrySet()) {
-                Offer offer = (Offer)entry.getValue();
+                Offer offer = (Offer) entry.getValue();
                 preparedStatement.setDouble(1, offer.getPrice());
                 preparedStatement.setInt(2, offer.getTermOfDelivery());
                 preparedStatement.setString(3, offer.getConditionOfPayment());
@@ -88,16 +88,16 @@ public class MySqlOfferDAO implements OfferDAO {
             connection.commit();
             ResultSet rs = preparedStatement.getGeneratedKeys();
             if (rs.next()) result = rs.getInt(1);
-            } catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
     }
 
-        @Override
+    @Override
     public Map<Integer, Offer> selectOfferByTenderIdAndSupplierId(int tenderId, int supplierId) {
 
-       Map<Integer, Offer> offerMap = new HashMap<>();
+        Map<Integer, Offer> offerMap = new HashMap<>();
 
         try {
             PreparedStatement statement = connection.prepareStatement(GET_OFFER_INFORMATION);
@@ -105,7 +105,7 @@ public class MySqlOfferDAO implements OfferDAO {
             statement.setInt(2, supplierId);
 
             ResultSet result = statement.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 Offer offer = new OfferBuilder()
                         .setLotId(result.getInt("lot_id"))
                         .setPrice(result.getDouble("price"))
@@ -135,7 +135,7 @@ public class MySqlOfferDAO implements OfferDAO {
             statement.setInt(1, tenderId);
 
             ResultSet result = statement.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 priceList.put(result.getInt("lot_id"), result.getDouble("min"));
             }
         } catch (SQLException e) {

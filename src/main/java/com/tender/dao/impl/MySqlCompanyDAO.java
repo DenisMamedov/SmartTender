@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by Денис on 03.01.2017.
@@ -19,18 +18,8 @@ public class MySqlCompanyDAO implements CompanyDAO {
 
     private Connection connection;
 
-    public MySqlCompanyDAO(Connection connection){
+    public MySqlCompanyDAO(Connection connection) {
         this.connection = connection;
-    }
-
-    @Override
-    public int insertCompany(Company company) {
-        return 0;
-    }
-
-    @Override
-    public boolean deleteCompany(int id) {
-        return false;
     }
 
     @Override
@@ -56,13 +45,4 @@ public class MySqlCompanyDAO implements CompanyDAO {
         return company;
     }
 
-    @Override
-    public boolean updateCompany(Company company) {
-        return false;
-    }
-
-    @Override
-    public List selectCompany() {
-        return null;
-    }
 }

@@ -9,9 +9,5 @@ import java.util.LinkedList;
  */
 public interface TenderSpecificationDAO {
 
-    int insertTenderSpecification(TenderSpecification tenderSpec);
-    boolean deleteTenderSpecification(int id);
-    TenderSpecification findTenderSpecification(int id);
-    boolean updateTenderSpecification(TenderSpecification tenderSpec);
     LinkedList<TenderSpecification> selectTenderSpecificationByTenderId(int id);
 }

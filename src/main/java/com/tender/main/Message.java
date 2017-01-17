@@ -5,17 +5,17 @@ package com.tender.main;
  */
 public class Message {
 
-    protected static String flashMessage="";
+    protected static String flashMessage = "";
 
-    public static void setFlash(String msg){
+    public static void setFlash(String msg) {
         flashMessage = msg;
     }
 
-    public static boolean hasFlash(){
+    public static boolean hasFlash() {
         return flashMessage.isEmpty();
     }
 
-    public static String getFlash(){
+    public static String getFlash() {
         String msg = flashMessage;
         flashMessage = "";
         return msg;

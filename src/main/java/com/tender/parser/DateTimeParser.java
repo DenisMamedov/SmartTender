@@ -13,7 +13,7 @@ public class DateTimeParser {
     public static Date parseDate(Date date) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string = date.toString();
-        Date datetime=null;
+        Date datetime = null;
         try {
             datetime = format.parse(string + " 15:00:00");
         } catch (ParseException e) {

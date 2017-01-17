@@ -15,7 +15,7 @@ public class CommandLogout implements ICommand {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("user") != null)
-        session.removeAttribute("user");
+            session.removeAttribute("user");
 
         return CommandTender.getInstance().execute(request, response);
 

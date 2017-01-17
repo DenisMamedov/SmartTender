@@ -14,7 +14,7 @@ public class StatusBuilder {
         return this;
     }
 
-    public Status createStatus(){
+    public Status createStatus() {
         return new Status(status);
     }
 }

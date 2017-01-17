@@ -6,7 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import java.util.Properties;
 
 public class LoggerLoader {
-	static {
+    static {
         load();
     }
 
@@ -22,9 +22,8 @@ public class LoggerLoader {
         PropertyConfigurator.configure(props);
     }
 
-	public static Logger getLogger(Class class1) {
-		// TODO Auto-generated method stub
-		return Logger.getLogger(class1);
-	}
+    public static Logger getLogger(Class class1) {
+        return Logger.getLogger(class1);
+    }
 
 }

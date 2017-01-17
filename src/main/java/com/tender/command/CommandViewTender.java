@@ -47,11 +47,11 @@ public class CommandViewTender implements ICommand {
         request.setAttribute("bestPrice", bestPrice);
         page = "WEB-INF/viewTender.jsp";
 
-        Map<Integer, Offer> offers = service.showTenderDetailsFromHistory(tenderId, (Supplier)session.getAttribute("user"));
+        Map<Integer, Offer> offers = service.showTenderDetailsFromHistory(tenderId, (Supplier) session.getAttribute("user"));
         //if (!offers.isEmpty())
         request.setAttribute("offer", offers);
 
-        if (request.getParameter("isHistory")!=null){
+        if (request.getParameter("isHistory") != null) {
 
             page = "WEB-INF/viewHistoryTender.jsp";
         }

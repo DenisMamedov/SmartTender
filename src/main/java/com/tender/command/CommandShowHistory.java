@@ -16,7 +16,7 @@ import java.util.LinkedList;
 /**
  * Created by Денис on 14.01.2017.
  */
-public class CommandShowHistory implements ICommand{
+public class CommandShowHistory implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -25,7 +25,7 @@ public class CommandShowHistory implements ICommand{
 
         HttpSession session = request.getSession();
         TenderService tenderService = (TenderService) ServiceManager.getService(TenderService.class);
-        LinkedList<Tender> tenders = tenderService.getHistory((Supplier)session.getAttribute("user"), StatusEnum.ENDED.getValue());
+        LinkedList<Tender> tenders = tenderService.getHistory((Supplier) session.getAttribute("user"), StatusEnum.ENDED.getValue());
 
         request.setAttribute("command", "/history");
         request.setAttribute("tenders", tenders);

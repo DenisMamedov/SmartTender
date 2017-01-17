@@ -27,7 +27,7 @@
                 Цена за единицу (без НДС)
             </td>
             <td>
-               <c:out value="${offer.get(item.getLotId()).getPrice()}"/>
+                <c:out value="${offer.get(item.getLotId()).getPrice()}"/>
             </td>
             <td>Количество</td>
             <td><c:out value="${item.getQuantity()}"/></td>

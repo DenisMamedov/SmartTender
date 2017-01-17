@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConnectionPool {
 
     private static ConnectionPool instance = null;
-    private static final String TOMCAT_JNDI_NAME="java:comp/env/";
+    private static final String TOMCAT_JNDI_NAME = "java:comp/env/";
     private DataSource pool;
     private String DATASOURCE = Config.getInstance().getProperty(Config.DATASOURCE);
 
@@ -30,17 +30,17 @@ public class ConnectionPool {
         return instance;
     }
 
-    private void initialPool(){
-        try{
+    private void initialPool() {
+        try {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup(TOMCAT_JNDI_NAME);
-            this.pool = (DataSource)envContext.lookup(DATASOURCE);
-        }catch(NamingException e){
+            this.pool = (DataSource) envContext.lookup(DATASOURCE);
+        } catch (NamingException e) {
             e.printStackTrace();
         }
     }
 
-    public synchronized Connection getConnection(){
+    public synchronized Connection getConnection() {
         Connection connection = null;
         try {
             connection = pool.getConnection();
@@ -50,12 +50,12 @@ public class ConnectionPool {
         return connection;
     }
 
-    public void closeConnection(Connection connection){
-        try{
-            if(connection != null){
+    public void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
                 connection.close();
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

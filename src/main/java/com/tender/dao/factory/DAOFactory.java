@@ -10,12 +10,16 @@ import java.sql.Connection;
 public abstract class DAOFactory {
 
     public abstract TenderDAO getTenderDAO();
+
     public abstract CompanyDAO getCompanyDAO();
+
     public abstract CategoryDAO getCategoryDAO();
+
     public abstract StatusDAO getStatusDAO();
+
     public abstract SupplierDAO getSupplierDAO();
 
-    public static DAOFactory getDAOFactory(Connection connection){
+    public static DAOFactory getDAOFactory(Connection connection) {
         return new MySqlDAOFactory(connection);
     }
 }

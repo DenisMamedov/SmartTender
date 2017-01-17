@@ -32,7 +32,7 @@ public class CompanyBuilder {
         return this;
     }
 
-    public Company createCompany(){
+    public Company createCompany() {
         return new Company(companyName, address, contactName, contactPhone);
     }
 }

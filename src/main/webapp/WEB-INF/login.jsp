@@ -9,26 +9,23 @@
 <%@ include file="index.jsp" %>
 <div class="container">
     <div class="starter-template">
-<form method="post" class="form-horizontal logform">
-    <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">Электронная почта</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" name="email" id="email">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Пароль</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" name="password" id="password">
-        </div>
-        <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" class="btn btn-primary btn-lg btn-block button" value="Войти">
-        </div>
-    </div>
-</form>
-
-
-
+        <form method="post" class="form-horizontal logform">
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Электронная почта</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Пароль</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block button" value="Войти">
+                </div>
+            </div>
+        </form>
 
 
     </div>

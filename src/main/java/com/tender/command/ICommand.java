@@ -10,5 +10,5 @@ import java.io.IOException;
  */
 public interface ICommand {
 
-    String execute (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

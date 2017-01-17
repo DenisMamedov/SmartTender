@@ -13,7 +13,7 @@ public class ServiceManager {
     private static ServiceManager instance = new ServiceManager();
     private HashMap<Class, Object> map = new HashMap<>();
 
-    private ServiceManager(){
+    private ServiceManager() {
         ConnectionPool connectionPoll = ConnectionPool.getInstance();
         Connection connection = connectionPoll.getConnection();
         map.put(TenderService.class, new TenderServiceImpl(connection));
@@ -22,7 +22,7 @@ public class ServiceManager {
 
     }
 
-    public static Object getService(Class serviceClass){
+    public static Object getService(Class serviceClass) {
         return instance.map.get(serviceClass);
     }
 }

@@ -12,23 +12,23 @@ public class MySqlDAOFactory extends DAOFactory {
 
     private Connection connection;
 
-    public MySqlDAOFactory(Connection connection){
+    public MySqlDAOFactory(Connection connection) {
         this.connection = connection;
     }
 
-    public TenderDAO getTenderDAO(){
+    public TenderDAO getTenderDAO() {
         return new MySqlTenderDAO(connection);
     }
 
-    public CompanyDAO getCompanyDAO(){
+    public CompanyDAO getCompanyDAO() {
         return new MySqlCompanyDAO(connection);
     }
 
-    public CategoryDAO getCategoryDAO(){
+    public CategoryDAO getCategoryDAO() {
         return new MySqlCategoryDAO(connection);
     }
 
-    public StatusDAO getStatusDAO(){
+    public StatusDAO getStatusDAO() {
         return new MySqlStatusDAO(connection);
     }
 
@@ -39,6 +39,7 @@ public class MySqlDAOFactory extends DAOFactory {
     public TenderSpecificationDAO getTenderSpecificationDAO() {
         return new MySqlTenderSpecificationDAO(connection);
     }
+
     public OfferDAO getOfferDAO() {
         return new MySqlOfferDAO(connection);
     }

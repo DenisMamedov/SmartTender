@@ -43,7 +43,7 @@ public class TenderBuilder {
         return this;
     }
 
-    public Tender createTender(){
+    public Tender createTender() {
         return new Tender(tenderName, company, category, endDate, status);
     }
 }

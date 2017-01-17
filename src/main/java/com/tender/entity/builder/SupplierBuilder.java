@@ -56,7 +56,7 @@ public class SupplierBuilder {
         return this;
     }
 
-    public Supplier createSupplier(){
+    public Supplier createSupplier() {
         return new Supplier(supplierName, okpo, address, contactName, contactPhone, email, password, role);
     }
 }

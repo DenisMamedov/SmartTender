@@ -22,9 +22,9 @@ public class CommandRegistration implements ICommand {
 
         String page = null;
         String method = request.getMethod();
-        if(method.equalsIgnoreCase("GET"))
+        if (method.equalsIgnoreCase("GET"))
             page = "/WEB-INF/registration.jsp";
-        if(method.equalsIgnoreCase("POST")){
+        if (method.equalsIgnoreCase("POST")) {
             HttpSession session = request.getSession();
 
             String supplierName = request.getParameter("supplier_name");
@@ -48,24 +48,24 @@ public class CommandRegistration implements ICommand {
             String password = request.getParameter("password");
             String passwordConfirm = request.getParameter("passwordConfirm");
 
-            if (!password.equals(passwordConfirm)){
+            if (!password.equals(passwordConfirm)) {
                 Message.setFlash("Пароли не совпадают! Попробуйте еще раз.");
                 return "/WEB-INF/registration.jsp";
             }
 
             if (supplierName != null && okpo != null && address != null & contactName != null
-                && contactPhone != null && email != null && password != null){
-                    Supplier supplier = new SupplierBuilder()
-                    .setSupplierName(supplierName)
-                    .setOkpo(new Integer(okpo))
-                    .setAddress(address)
-                    .setContactName(contactName)
-                    .setContactPhone(contactPhone)
-                    .setEmail(email)
-                    .setPassword(password)
-                    .createSupplier();
-            UserService supplierService = (UserService) ServiceManager.getService(UserService.class);
-            int id = supplierService.registration(supplier);
+                    && contactPhone != null && email != null && password != null) {
+                Supplier supplier = new SupplierBuilder()
+                        .setSupplierName(supplierName)
+                        .setOkpo(new Integer(okpo))
+                        .setAddress(address)
+                        .setContactName(contactName)
+                        .setContactPhone(contactPhone)
+                        .setEmail(email)
+                        .setPassword(password)
+                        .createSupplier();
+                UserService supplierService = (UserService) ServiceManager.getService(UserService.class);
+                int id = supplierService.registration(supplier);
                 if (id != 0) return "/WEB-INF/login.jsp";
             }
 

@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Created by Денис on 04.01.2017.
@@ -19,18 +18,8 @@ public class MySqlStatusDAO implements StatusDAO {
 
     private Connection connection;
 
-    public MySqlStatusDAO(Connection connection){
+    public MySqlStatusDAO(Connection connection) {
         this.connection = connection;
-    }
-
-    @Override
-    public int insertStatus(Status category) {
-        return 0;
-    }
-
-    @Override
-    public boolean deleteStatus(int id) {
-        return false;
     }
 
     @Override
@@ -53,13 +42,4 @@ public class MySqlStatusDAO implements StatusDAO {
         return status;
     }
 
-    @Override
-    public boolean updateStatus(Status status) {
-        return false;
-    }
-
-    @Override
-    public ArrayList<Status> selectStatus() {
-        return null;
-    }
 }

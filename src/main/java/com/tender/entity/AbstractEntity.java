@@ -9,11 +9,11 @@ public abstract class AbstractEntity implements Serializable {
 
     protected Integer id;
 
-    public Integer getId(){
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 

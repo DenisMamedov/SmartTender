@@ -12,7 +12,7 @@ public class Company extends AbstractEntity {
     private String contactName;
     private String contactPhone;
 
-    public Company(String companyName, String address, String contactName, String contactPhone){
+    public Company(String companyName, String address, String contactName, String contactPhone) {
         this.companyName = companyName;
         this.address = address;
         this.contactName = contactName;

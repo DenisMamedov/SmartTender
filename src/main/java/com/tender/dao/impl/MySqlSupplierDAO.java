@@ -6,7 +6,6 @@ import com.tender.entity.builder.SupplierBuilder;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  * Created by Денис on 10.01.2017.
@@ -17,7 +16,7 @@ public class MySqlSupplierDAO implements SupplierDAO {
     private static final String ADD_SUPPLIER = "INSERT INTO supplier(supplier_name, okpo, address, contact_name, contact_phone, email, password) VALUES (?,?,?,?,?,?,?)";
     private Connection connection;
 
-    public MySqlSupplierDAO(Connection connection){
+    public MySqlSupplierDAO(Connection connection) {
         this.connection = connection;
     }
 
@@ -37,18 +36,13 @@ public class MySqlSupplierDAO implements SupplierDAO {
 
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
-            if (rs.next()) result=rs.getInt(1);
+            if (rs.next()) result = rs.getInt(1);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return result;
-    }
-
-    @Override
-    public boolean deleteSupplier(int id) {
-        return false;
     }
 
     @Override
@@ -78,13 +72,5 @@ public class MySqlSupplierDAO implements SupplierDAO {
         }
         return supplier;
     }
-    @Override
-    public boolean updateSupplier(Supplier supplier) {
-        return false;
-    }
 
-    @Override
-    public ArrayList<Supplier> selectSupplier() {
-        return null;
-    }
 }

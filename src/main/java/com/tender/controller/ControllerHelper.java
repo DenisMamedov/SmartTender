@@ -19,7 +19,7 @@ public class ControllerHelper {
     HashMap<String, ICommand> commands = new HashMap<>();
     HashMap<String, ICommand> adminCommands = new HashMap<>();
 
-    private ControllerHelper(){
+    private ControllerHelper() {
         commands.put("/", new CommandTender());
         commands.put("/registration", new CommandRegistration());
         commands.put("/login", new CommandLogin());
@@ -29,33 +29,33 @@ public class ControllerHelper {
         commands.put("/history", new CommandShowHistory());
     }
 
-    public ICommand getCommand(HttpServletRequest request){
+    public ICommand getCommand(HttpServletRequest request) {
 
         String role = getRoleFromSession(request);
         ICommand command = null;
 
-        if(role.equals("user"))
+        if (role.equals("user"))
             command = commands.get(request.getParameter("command"));
-        else if(role.equals("admin"))
+        else if (role.equals("admin"))
             command = adminCommands.get(request.getParameter("command"));
         if (command == null)
             command = new CommandTender();
         return command;
     }
 
-    private String getRoleFromSession(HttpServletRequest request){
+    private String getRoleFromSession(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String role = null;
         UserService userService = (UserService) ServiceManager.getService(UserService.class);
-        if(session == null){
+        if (session == null) {
             return "user";
         }
         role = userService.getRoleFromSession((Supplier) session.getAttribute("user"));
         return role;
     }
 
-    public static ControllerHelper getInstance(){
-        if (instance == null){
+    public static ControllerHelper getInstance() {
+        if (instance == null) {
             instance = new ControllerHelper();
         }
         return instance;

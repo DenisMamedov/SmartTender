@@ -9,13 +9,14 @@ import java.sql.Connection;
 /**
  * Created by Денис on 11.01.2017.
  */
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private Connection connection;
 
-    public UserServiceImpl(Connection connection){
+    public UserServiceImpl(Connection connection) {
         this.connection = connection;
     }
+
     @Override
     public String getRoleFromSession(Supplier supplier) {
         return "user";

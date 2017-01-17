@@ -5,11 +5,11 @@ import java.util.Objects;
 /**
  * Created by Денис on 03.01.2017.
  */
-public class Category extends AbstractEntity{
+public class Category extends AbstractEntity {
 
     private String categoryName;
 
-    public Category(String categoryName){
+    public Category(String categoryName) {
         this.categoryName = categoryName;
     }
 

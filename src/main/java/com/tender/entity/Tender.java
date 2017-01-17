@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Created by Денис on 24.12.2016.
  */
-public class Tender extends AbstractEntity{
+public class Tender extends AbstractEntity {
 
     private String tenderName;
     private Company company;
@@ -14,7 +14,7 @@ public class Tender extends AbstractEntity{
     private Date endDate;
     private Status status;
 
-    public Tender(String tenderName, Company company, Category category, Date endDate, Status status){
+    public Tender(String tenderName, Company company, Category category, Date endDate, Status status) {
         this.tenderName = tenderName;
         this.company = company;
         this.category = category;
@@ -67,7 +67,7 @@ public class Tender extends AbstractEntity{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tender that = (Tender) o;
-        return  Objects.equals(id, that.id) &&
+        return Objects.equals(id, that.id) &&
                 Objects.equals(tenderName, that.tenderName) &&
                 Objects.equals(company, that.company) &&
                 Objects.equals(category, that.category) &&

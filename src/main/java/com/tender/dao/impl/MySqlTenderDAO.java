@@ -45,21 +45,11 @@ public class MySqlTenderDAO implements TenderDAO {
     private StatusDAO statusDAO;
     private Connection connection;
 
-    public MySqlTenderDAO(Connection connection){
+    public MySqlTenderDAO(Connection connection) {
         this.connection = connection;
         this.companyDAO = MySqlDAOFactory.getDAOFactory(connection).getCompanyDAO();
         this.categoryDAO = MySqlDAOFactory.getDAOFactory(connection).getCategoryDAO();
         this.statusDAO = MySqlDAOFactory.getDAOFactory(connection).getStatusDAO();
-    }
-
-    @Override
-    public int insertTender(Tender tender) {
-        return 0;
-    }
-
-    @Override
-    public boolean deleteTender(int id) {
-        return false;
     }
 
     @Override
@@ -78,20 +68,14 @@ public class MySqlTenderDAO implements TenderDAO {
         return tender;
     }
 
-
-        @Override
-    public boolean updateTender(Tender tender) {
-        return false;
-    }
-
     @Override
     public LinkedList<Tender> selectTender() {
         LinkedList<Tender> list = new LinkedList<>();
         try {
-        PreparedStatement statement = connection.prepareStatement(SELECT_ALL_TENDERS);
-        ResultSet result = statement.executeQuery();
-            while (result.next()){
-            list.add(createEntity(result));
+            PreparedStatement statement = connection.prepareStatement(SELECT_ALL_TENDERS);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                list.add(createEntity(result));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,12 +89,12 @@ public class MySqlTenderDAO implements TenderDAO {
         LinkedList<Tender> list = new LinkedList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(SEARCH_TENDER_BY_CONTEXT);
-            for(int i = 1; i <=5; i++){
+            for (int i = 1; i <= 5; i++) {
                 statement.setString(i, "%" + context + "%");
             }
             System.out.println();
             ResultSet result = statement.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 Tender tender = createEntity(result);
                 list.add(tender);
             }
@@ -128,7 +112,7 @@ public class MySqlTenderDAO implements TenderDAO {
             statement.setInt(1, id);
             statement.setString(2, status);
             ResultSet result = statement.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 list.add(createEntity(result));
             }
         } catch (SQLException e) {

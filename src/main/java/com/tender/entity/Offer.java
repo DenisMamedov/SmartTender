@@ -21,8 +21,7 @@ public class Offer extends AbstractEntity {
 
     public Offer(Supplier supplier, Tender tender, Integer lotId, Double price, Integer termOfDelivery,
                  String conditionOfPayment, String additionalInfo, Timestamp timeset, String conditionOfDelivery,
-                Double guarantee)
-    {
+                 Double guarantee) {
         this.supplier = supplier;
         this.tender = tender;
         this.lotId = lotId;

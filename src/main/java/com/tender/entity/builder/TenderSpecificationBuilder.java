@@ -39,7 +39,7 @@ public class TenderSpecificationBuilder {
         return this;
     }
 
-    public TenderSpecification createTenderSpecification(){
+    public TenderSpecification createTenderSpecification() {
         return new TenderSpecification(tender, lotId, specification, quantity, information);
     }
 }

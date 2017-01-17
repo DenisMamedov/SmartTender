@@ -46,10 +46,10 @@ public class CommandTender implements ICommand {
             if (!context.isEmpty())
                 tenders = tenderService.searchTenderByContext(context);
 
-           if (!company.isEmpty())
+            if (!company.isEmpty())
                 tenders = tenderService.searchTenderByCompanyName(company, tenders);
 
-           if (!category.isEmpty())
+            if (!category.isEmpty())
                 tenders = tenderService.searchTenderByCategoryName(category, tenders);
 
         }

@@ -12,9 +12,10 @@ import java.sql.Connection;
 public class LoginServiceImpl implements LoginService {
     private Connection connection;
 
-    public LoginServiceImpl(Connection connection){
+    public LoginServiceImpl(Connection connection) {
         this.connection = connection;
     }
+
     @Override
     public Supplier login(String email, String password) {
 

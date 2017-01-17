@@ -10,12 +10,13 @@ import java.util.LinkedList;
  */
 public interface TenderDAO {
 
-    int insertTender(Tender tender);
-    boolean deleteTender(int id);
     Tender findTender(int id);
-    boolean updateTender(Tender tender);
+
     LinkedList<Tender> selectTender();
+
     LinkedList<Tender> searchTenderByContext(String context);
+
     LinkedList<Tender> selectTenderBySupplierId(int id, String status);
+
     Tender createEntity(ResultSet result);
 }

@@ -10,7 +10,7 @@ public class Status extends AbstractEntity {
 
     private String status;
 
-    public Status(String status){
+    public Status(String status) {
         this.status = status;
     }
 

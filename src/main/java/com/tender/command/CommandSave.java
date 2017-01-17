@@ -83,22 +83,19 @@ public class CommandSave implements ICommand {
                 offerMap.put(offer.getLotId(), offer);
             }
             Integer supplierId = Integer.parseInt(request.getParameter("supplier_id"));
-            if (request.getParameter("update").equals("true")){
-                if (service.updateOffer(offerMap, supplierId, tenderId) > 0){
-                Message.setFlash("Предложение принято!");
-                page = "WEB-INF/save.jsp";
-                }
-                else {
+            if (request.getParameter("update").equals("true")) {
+                if (service.updateOffer(offerMap, supplierId, tenderId) > 0) {
+                    Message.setFlash("Предложение принято!");
+                    page = "WEB-INF/save.jsp";
+                } else {
                     Message.setFlash("Нельзя подавать предложение на тендер, если нет цены ни по одному лоту!");
-                page = CommandViewTender.getInstance().execute(request, response);
+                    page = CommandViewTender.getInstance().execute(request, response);
                 }
-            }
-            else {
+            } else {
                 if (service.saveOffer(offerMap) > 0) {
                     Message.setFlash("Предложение принято!");
                     page = "WEB-INF/save.jsp";
-                }
-                else {
+                } else {
                     Message.setFlash("Нельзя подавать предложение на тендер, если нет цены ни по одному лоту!");
                     page = CommandViewTender.getInstance().execute(request, response);
                 }
@@ -107,6 +104,7 @@ public class CommandSave implements ICommand {
         }
         return page;
     }
+
     public static String[] removeNullValue(String[] array) {
         return Arrays.stream(array)
                 .filter(s -> (s != null && s.length() > 0))

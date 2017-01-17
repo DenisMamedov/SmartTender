@@ -72,7 +72,7 @@ public class OfferBuilder {
         return this;
     }
 
-    public Offer createOffer(){
+    public Offer createOffer() {
         return new Offer(supplier, tender, lotId, price, termOfDelivery, conditionOfPayment, additionalInfo, timeset, conditionOfDelivery, guarantee);
     }
 }

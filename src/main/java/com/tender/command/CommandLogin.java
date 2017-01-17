@@ -22,19 +22,18 @@ public class CommandLogin implements ICommand {
         final String email = request.getParameter("email");
         final String password = request.getParameter("password");
         String method = request.getMethod();
-        if(method.equalsIgnoreCase("GET"))
+        if (method.equalsIgnoreCase("GET"))
             page = "/WEB-INF/login.jsp";
-        if(method.equalsIgnoreCase("POST")){
+        if (method.equalsIgnoreCase("POST")) {
             HttpSession session = request.getSession();
             LoginService loginService = (LoginService) ServiceManager.getService(LoginService.class);
             Supplier supplier = loginService.login(email, password);
-            if (supplier == null){
+            if (supplier == null) {
                 Message.setFlash("Неверные данные для входа!");
                 page = "/WEB-INF/login.jsp";
-            }
-            else {
+            } else {
                 session.setAttribute("user", supplier);
-                Message.setFlash("Вы вошли как " + supplier.getSupplierName()+"!");
+                Message.setFlash("Вы вошли как " + supplier.getSupplierName() + "!");
                 page = CommandTender.getInstance().execute(request, response);
             }
         }

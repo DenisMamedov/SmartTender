@@ -9,9 +9,7 @@ import java.util.ArrayList;
  */
 public interface CategoryDAO {
 
-    int insertCategory(Category category);
-    boolean deleteCategory(int id);
     Category findCategory(int id);
-    boolean updateCategory(Category category);
+
     ArrayList<Category> selectCategory();
 }

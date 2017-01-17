@@ -103,7 +103,7 @@ public class TenderServiceImpl implements TenderService {
 
         int result;
         if (offerMap.size() == 0) result = 0;
-        else{
+        else {
             OfferDAO offerDAO = new MySqlDAOFactory(connection).getOfferDAO();
             result = offerDAO.insertOffer(offerMap);
         }
@@ -115,29 +115,28 @@ public class TenderServiceImpl implements TenderService {
     public int updateOffer(Map<Integer, Offer> offerMap, int supplierId, int tenderId) {
 
         int result = 0;
-        if (offerMap.size()==0) result=0;
-        else{
-        OfferDAO offerDAO = new MySqlDAOFactory(connection).getOfferDAO();
+        if (offerMap.size() == 0) result = 0;
+        else {
+            OfferDAO offerDAO = new MySqlDAOFactory(connection).getOfferDAO();
 
-        Map<Integer, Offer> existingOffer = offerDAO.selectOfferByTenderIdAndSupplierId(tenderId, supplierId);
-        Map<Integer, Offer> listToUpdate = new HashMap<>();
-        Map<Integer, Offer> listToSave = new HashMap<>();
+            Map<Integer, Offer> existingOffer = offerDAO.selectOfferByTenderIdAndSupplierId(tenderId, supplierId);
+            Map<Integer, Offer> listToUpdate = new HashMap<>();
+            Map<Integer, Offer> listToSave = new HashMap<>();
 
-            for(Map.Entry firstEntry : offerMap.entrySet()){
-                Integer key = (Integer)firstEntry.getKey();
-                Offer value = (Offer)firstEntry.getValue();
+            for (Map.Entry firstEntry : offerMap.entrySet()) {
+                Integer key = (Integer) firstEntry.getKey();
+                Offer value = (Offer) firstEntry.getValue();
 //                for (Map.Entry secondEntry : existingOffer.entrySet()){
 //                    Integer secondKey = (Integer)secondEntry.getKey();
-                    if (existingOffer.containsKey(key)){
-                        listToUpdate.put(key, value);
-                    }
-                    else {
-                        listToSave.put(key, value);
-                    }
+                if (existingOffer.containsKey(key)) {
+                    listToUpdate.put(key, value);
+                } else {
+                    listToSave.put(key, value);
+                }
             }
 
-        if (listToUpdate.size() > 0) result = offerDAO.updateOffer(listToUpdate, supplierId, tenderId);
-        if (listToSave.size() > 0) result = offerDAO.insertOffer(listToSave);
+            if (listToUpdate.size() > 0) result = offerDAO.updateOffer(listToUpdate, supplierId, tenderId);
+            if (listToSave.size() > 0) result = offerDAO.insertOffer(listToSave);
         }
 
         return result;

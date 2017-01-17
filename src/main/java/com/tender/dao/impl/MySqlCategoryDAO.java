@@ -20,18 +20,8 @@ public class MySqlCategoryDAO implements CategoryDAO {
 
     private Connection connection;
 
-    public MySqlCategoryDAO(Connection connection){
+    public MySqlCategoryDAO(Connection connection) {
         this.connection = connection;
-    }
-
-    @Override
-    public int insertCategory(Category tender) {
-        return 0;
-    }
-
-    @Override
-    public boolean deleteCategory(int id) {
-        return false;
     }
 
     @Override
@@ -55,18 +45,13 @@ public class MySqlCategoryDAO implements CategoryDAO {
     }
 
     @Override
-    public boolean updateCategory(Category tender) {
-        return false;
-    }
-
-    @Override
     public ArrayList<Category> selectCategory() {
 
-        ArrayList<Category> list = new  ArrayList<>();
+        ArrayList<Category> list = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(SELECT_ALL_CATEGORIES);
             ResultSet result = statement.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 Category category = new CategoryBuilder()
                         .setCategoryName(result.getString("category_name"))
                         .createCategory();
