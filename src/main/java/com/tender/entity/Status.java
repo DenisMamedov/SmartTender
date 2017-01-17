@@ -14,7 +14,7 @@ public class Status extends AbstractEntity {
         this.status = status;
     }
 
-    public String getStatus() {
+    public String getStatusName() {
         return status;
     }
 

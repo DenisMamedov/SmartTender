@@ -1,13 +1,7 @@
 package com.tender.dao.factory;
 
-import com.tender.dao.CategoryDAO;
-import com.tender.dao.CompanyDAO;
-import com.tender.dao.StatusDAO;
-import com.tender.dao.TenderDAO;
-import com.tender.dao.impl.MySqlCompanyDAO;
-import com.tender.dao.impl.MySqlStatusDAO;
-import com.tender.dao.impl.MySqlTenderDAO;
-import com.tender.dao.impl.MySqlCategoryDAO;
+import com.tender.dao.*;
+import com.tender.dao.impl.*;
 
 import java.sql.Connection;
 
@@ -36,6 +30,17 @@ public class MySqlDAOFactory extends DAOFactory {
 
     public StatusDAO getStatusDAO(){
         return new MySqlStatusDAO(connection);
+    }
+
+    public SupplierDAO getSupplierDAO() {
+        return new MySqlSupplierDAO(connection);
+    }
+
+    public TenderSpecificationDAO getTenderSpecificationDAO() {
+        return new MySqlTenderSpecificationDAO(connection);
+    }
+    public OfferDAO getOfferDAO() {
+        return new MySqlOfferDAO(connection);
     }
 
 }

@@ -9,12 +9,14 @@ public class TenderSpecification extends AbstractEntity {
 
     private Tender tender;
     private Integer lotId;
+    private String specification;
     private Integer quantity;
     private String information;
 
-    public TenderSpecification(Tender tender, Integer lotId, Integer quantity, String information){
+    public TenderSpecification(Tender tender, Integer lotId, String specification, Integer quantity, String information){
         this.tender = tender;
         this.lotId = lotId;
+        this.specification = specification;
         this.quantity = quantity;
         this.information = information;
     }
@@ -33,6 +35,14 @@ public class TenderSpecification extends AbstractEntity {
 
     public void setLotId(Integer lotId) {
         this.lotId = lotId;
+    }
+
+    public String getSpecification(){
+        return  specification;
+    }
+
+    public void setSpecification(String specification){
+        this.specification = specification;
     }
 
     public Integer getQuantity() {

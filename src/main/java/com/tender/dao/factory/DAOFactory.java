@@ -1,9 +1,6 @@
 package com.tender.dao.factory;
 
-import com.tender.dao.CategoryDAO;
-import com.tender.dao.CompanyDAO;
-import com.tender.dao.StatusDAO;
-import com.tender.dao.TenderDAO;
+import com.tender.dao.*;
 
 import java.sql.Connection;
 
@@ -16,6 +13,7 @@ public abstract class DAOFactory {
     public abstract CompanyDAO getCompanyDAO();
     public abstract CategoryDAO getCategoryDAO();
     public abstract StatusDAO getStatusDAO();
+    public abstract SupplierDAO getSupplierDAO();
 
     public static DAOFactory getDAOFactory(Connection connection){
         return new MySqlDAOFactory(connection);

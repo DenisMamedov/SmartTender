@@ -111,4 +111,18 @@ public class Supplier extends AbstractEntity {
     public int hashCode() {
         return Objects.hash(supplierName, okpo, address, contactName, contactPhone, email, password, role);
     }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "supplierName='" + supplierName + '\'' +
+                ", okpo=" + okpo +
+                ", address='" + address + '\'' +
+                ", contactName='" + contactName + '\'' +
+                ", contactPhone='" + contactPhone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

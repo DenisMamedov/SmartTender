@@ -10,11 +10,17 @@ public class TenderSpecificationBuilder {
 
     private Tender tender;
     private Integer lotId;
+    private String specification;
     private Integer quantity;
     private String information;
 
     public TenderSpecificationBuilder setTender(Tender tender) {
         this.tender = tender;
+        return this;
+    }
+
+    public TenderSpecificationBuilder setSpecification(String specification) {
+        this.specification = specification;
         return this;
     }
 
@@ -34,6 +40,6 @@ public class TenderSpecificationBuilder {
     }
 
     public TenderSpecification createTenderSpecification(){
-        return new TenderSpecification(tender, lotId, quantity, information);
+        return new TenderSpecification(tender, lotId, specification, quantity, information);
     }
 }

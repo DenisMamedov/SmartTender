@@ -101,6 +101,8 @@
     <column id="32" parent="10" name="timeset">
       <Position>9</Position>
       <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="33" parent="10" name="condition_of_delivery">
       <Position>10</Position>
@@ -108,7 +110,7 @@
     </column>
     <column id="34" parent="10" name="guarantee">
       <Position>11</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>double|0</DataType>
     </column>
     <column id="35" parent="10" name="status">
       <Position>12</Position>
@@ -202,7 +204,7 @@
     <column id="54" parent="12" name="role">
       <Position>9</Position>
       <DataType>varchar(50)|0</DataType>
-      <DefaultExpression>&apos;admin&apos;</DefaultExpression>
+      <DefaultExpression>&apos;user&apos;</DefaultExpression>
     </column>
     <column id="55" parent="12" name="is_active">
       <Position>10</Position>

@@ -20,7 +20,7 @@ public class OfferBuilder {
     private String additionalInfo;
     private Timestamp timeset;
     private String conditionOfDelivery;
-    private Integer guarantee;
+    private Double guarantee;
 
     public OfferBuilder setSupplier(Supplier supplier) {
         this.supplier = supplier;
@@ -67,7 +67,7 @@ public class OfferBuilder {
         return this;
     }
 
-    public OfferBuilder setGuarantee(Integer guarantee) {
+    public OfferBuilder setGuarantee(Double guarantee) {
         this.guarantee = guarantee;
         return this;
     }

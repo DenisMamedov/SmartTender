@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: Денис
-  Date: 05.01.2017
-  Time: 21:37
+  Date: 14.01.2017
+  Time: 2:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Hi</title>
-</head>
-<body>
-    <H1>Test!!!</H1>
+<%@ include file="index.jsp" %>
+
+<a href="/"><button class="btn btn-primary">Назад</button></a>
+
+</div>
+</div>
 </body>
 </html>

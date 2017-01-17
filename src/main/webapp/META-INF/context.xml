@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/airline" debug="1">
+    <Resource
+            name="jdbc/tender"
+            author="Container"
+            type="javax.sql.DataSource"
+            maxActive="100"
+            maxIdle="100"
+            maxWait="10"
+            username="root"
+            password="root"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/tender"
+    />
+</Context>

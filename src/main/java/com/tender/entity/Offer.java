@@ -17,11 +17,11 @@ public class Offer extends AbstractEntity {
     private String additionalInfo;
     private Timestamp timeset;
     private String conditionOfDelivery;
-    private Integer guarantee;
+    private Double guarantee;
 
     public Offer(Supplier supplier, Tender tender, Integer lotId, Double price, Integer termOfDelivery,
                  String conditionOfPayment, String additionalInfo, Timestamp timeset, String conditionOfDelivery,
-                Integer guarantee)
+                Double guarantee)
     {
         this.supplier = supplier;
         this.tender = tender;
@@ -107,11 +107,11 @@ public class Offer extends AbstractEntity {
         this.conditionOfDelivery = conditionOfDelivery;
     }
 
-    public Integer getGuarantee() {
+    public Double getGuarantee() {
         return guarantee;
     }
 
-    public void setGuarantee(Integer guarantee) {
+    public void setGuarantee(Double guarantee) {
         this.guarantee = guarantee;
     }
 
